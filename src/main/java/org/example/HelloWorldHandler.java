@@ -7,7 +7,7 @@ public class HelloWorldHandler implements RequestHandler<Object, String> {
 
     @Override
     public String handleRequest(Object input, Context context){
-        context.getLogger().log("Minha função Hello World foi executada!");
+        context.getLogger().log("Minha função Hello World foi executada corretamente!");
 
         return "Lambda está usando Java corretamente";
     }
