@@ -9,6 +9,6 @@ public class HelloWorldHandler implements RequestHandler<Object, String> {
     public String handleRequest(Object input, Context context){
         context.getLogger().log("Minha função Hello World foi executada!");
 
-        return "Lambda usando Java";
+        return "Lambda está usando Java corretamente";
     }
 }
