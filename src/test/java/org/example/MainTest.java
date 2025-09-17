@@ -1,38 +1,26 @@
 package org.example;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+import static junit.framework.Assert.assertEquals;
 
-/**
- * Unit test for simple App.
- */
-public class MainTest
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public MainTest(String testName )
-    {
-        super( testName );
-    }
+import com.amazonaws.services.lambda.runtime.Context;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( MainTest.class );
-    }
+public class MainTest {
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void testHandleRequest() {
+        System.out.println("Iniciando teste unitário da função Lambda...");
+
+        HelloWorldHandler handler = new HelloWorldHandler();
+
+        Context testContext = new TestContext();
+
+        Object testInput = null;
+
+        String result = handler.handleRequest(testInput, testContext);
+
+        assertEquals("Lambda está usando Java corretamente", result);
+
+        System.out.println("Teste unitário finalizado com sucesso!");
     }
 }
